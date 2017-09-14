@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }} – {{ site.description }}</title>
 
     {% include meta.html %}
@@ -9,14 +12,68 @@
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
-    <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.4/css/uikit.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Italianno" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.4/js/uikit.min.js"></script>
+
+    <style type="text/css">
+      .gl-header-expanded{
+        background-image: url(https://static.pexels.com/photos/265824/pexels-photo-265824.jpeg);
+      }
+
+      .gl-header-logo-wrapper{
+        height: 18rem;
+      }
+
+      @media screen and (max-width: 768px){
+        .gl-header-logo-wrapper{
+          height: 13.5rem;
+        }
+      }
+
+      @media screen and (max-width: 480px){
+        .gl-header-logo-wrapper{
+          height: 9rem;
+        }
+      }
+
+      .gl-logo{
+        background: url(../../images/goldloop_logo_notxt.svg) no-repeat center;
+        background-size: contain;
+        
+        font-family: 'Italianno', cursive;
+
+        height: 100%;
+      }
+
+      .gl-navbar{
+        background: none;
+      }
+    </style>
 
     <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
   </head>
 
   <body>
-    <div class="wrapper-masthead">
+    <header class="gl-header-expanded uk-cover-background">
+      <div class="gl-header-logo-wrapper">
+        <div class="gl-logo uk-container-center"></div>
+      </div>
+      
+      <nav class="gl-navbar uk-navbar uk-margin-large-bottom uk-cover-background">
+        <a href="{{ site.baseurl }}/" class="uk-navbar-brand">{{ site.name }}</a>
+      </nav>
+    </header>
+
+    <div class="uk-container uk-container-expand">
+      <div id="content" role="main" class="uk-grid" data-uk-grid-margin>
+        {{ content }}
+      </div>
+    </div>
+
+
+    <!-- <div class="wrapper-masthead">
       <div class="container">
         <header class="masthead clearfix">
           <a href="{{ site.baseurl }}/" class="site-avatar"><img src="{{ site.avatar }}" /></a>
@@ -46,6 +103,7 @@
       </div>
     </div>
 
-    {% include analytics.html %}
+    {% include analytics.html %} -->
+
   </body>
 </html>
